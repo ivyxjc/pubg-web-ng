@@ -1,13 +1,9 @@
-nz-footer {
+footer .copyright {
+    clear: both;
     font-size: 10px;
+    text-align: center;
     margin: 10px 5px 10px 5px;
     line-height: 1em;
     color: #555555;
     width: 100%;
-}
-
-.ant-input {
-    float: contour;
-    width: 120px;
-    margin: 0 8px 0 8px;
 }
