@@ -1,4 +1,4 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
@@ -8,9 +8,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
-import {RecordcardComponent} from './page/recordcard/recordcard.component';
 import {registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
+import {StatscardComponent} from './page/statscard/statscard.component';
+import {MatIconModule, MatIconRegistry} from '@angular/material';
 
 registerLocaleData(zh);
 
@@ -19,17 +20,21 @@ registerLocaleData(zh);
         AppComponent,
         FooterComponent,
         HeaderComponent,
-        RecordcardComponent
+        StatscardComponent,
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
         HttpClientModule,
-        NgZorroAntdModule
+        NgZorroAntdModule,
+        MatIconModule
     ],
     providers: [{provide: NZ_I18N, useValue: zh_CN}],
     bootstrap: [AppComponent]
 })
 export class AppModule {
+    constructor(matIconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+        matIconRegistry.addSvgIcon('run-man', sanitizer.bypassSecurityTrustResourceUrl('assets/running-man.svg'));
+    }
 }
