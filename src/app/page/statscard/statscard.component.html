@@ -96,12 +96,18 @@
 </nz-card>
 
 <ng-template class="backss" #titleTemplate style="display: inline-block">
-    <mat-icon class="icon" svgIcon="run-man"></mat-icon>
-    <span class="title">单排 TPP</span>
+    <div *ngFor="let num of numArray" style="display: inline">
+        <mat-icon class="icon" svgIcon="run-man"></mat-icon>
+    </div>
+    <div style="display: inline" [ngSwitch]="scNumber">
+        <span class="title" *ngSwitchCase="1">单排TPP</span>
+        <span class="title" *ngSwitchCase="2">双排TPP</span>
+        <span class="title" *ngSwitchCase="4">四排TPP</span>
+    </div>
 </ng-template>
 
 
 <ng-template class="backss" #extraTemplate>
-    <span>7场</span>
+    <span>{{scStatsData.roundsPlayed}}场</span>
 </ng-template>
 

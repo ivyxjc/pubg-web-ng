@@ -8,6 +8,8 @@ import {PlayerService} from '../../service/http/player.service';
 })
 export class StatscardComponent implements OnInit, OnChanges {
     @Input() scStatsData = <IGameModeStats>{};
+    @Input() scNumber: number;
+    numArray: Array<number> = new Array<number>(1);
 
     constructor(private playerService: PlayerService) {
     }
@@ -17,7 +19,7 @@ export class StatscardComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges() {
-        console.log('onchange');
+        this.numArray = new Array<number>(this.scNumber);
         if (typeof this.scStatsData === 'undefined') {
             this.scStatsData = <IGameModeStats>{};
         }
