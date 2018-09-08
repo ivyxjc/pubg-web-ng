@@ -10,6 +10,12 @@
     width: 330px;
 }
 
+@media (max-width: 800px) {
+    .stats {
+        width: 100%;
+    }
+}
+
 ul {
     list-style: none;
     width: 100%;
@@ -58,6 +64,7 @@ li:nth-child(2n-1) {
     padding: 9px 10px 0 10px;
     display: block;
     font-size: 16px;
+    color: #ff0000;
 }
 
 .stats_item:nth-child(4n-1) {

@@ -1,14 +1,13 @@
 <nz-card class="stats" [nzBordered]="true" [nzTitle]="titleTemplate"
          [nzExtra]="extraTemplate">
 
-
     <ul *ngIf="!isEmpty()" class="stats_list">
         <li class="stats_item">
             <div class="stats_key stats_key--imp">
                 <span>K/D</span>
             </div>
             <div class="stats_value stats_value--imp">
-                <span>{{playerModeStats.kills}}</span>
+                <span>{{scStatsData.kills/scStatsData.roundsPlayed|number:'1.2-2'}}</span>
             </div>
         </li>
         <li class="stats_item">
@@ -16,7 +15,7 @@
                 <span>场均伤害</span>
             </div>
             <div class="stats_value stats_value--imp">
-                <span>450</span>
+                <span>{{scStatsData.damageDealt/scStatsData.roundsPlayed|number:'1.0-0'}}</span>
             </div>
         </li>
         <li class="stats_item">
@@ -24,23 +23,60 @@
                 <span>胜</span>
             </div>
             <div class="stats_value">
-                <span>2.0%</span>
+                <span>{{scStatsData.wins/scStatsData.roundsPlayed*100|number:'1.1-1'}}%</span>
             </div>
         </li>
         <li class="stats_item">
             <div class="stats_key">
-                <span>Top 10%</span>
+                <span>Top 10</span>
             </div>
             <div class="stats_value">
-                <span>9.8%A</span>
+                <span>{{scStatsData.top10s/scStatsData.roundsPlayed*100|number:'1.1-1'}}%</span>
             </div>
         </li>
+
+
+        <li class="stats_item">
+            <div class="stats_key">
+                <span>游戏局数</span>
+            </div>
+            <div class="stats_value">
+                <span>{{scStatsData.roundsPlayed|number:'1.0-0'}}</span>
+            </div>
+        </li>
+        <li class="stats_item">
+            <div class="stats_key">
+                <span>单局最高击杀</span>
+            </div>
+            <div class="stats_value">
+                <span>{{scStatsData.roundMostKills|number:'1.0-0'}}</span>
+            </div>
+        </li>
+
         <li class="stats_item">
             <div class="stats_key">
                 <span>最远击杀距离</span>
             </div>
             <div class="stats_value">
-                <span>300m</span>
+                <span>{{scStatsData.longestKill|number:'1.2-2'}}m</span>
+            </div>
+        </li>
+        <li class="stats_item">
+            <div class="stats_key">
+                <span>最长存活时间</span>
+            </div>
+            <div class="stats_value">
+                <span>{{scStatsData.mostSurvivalTime}}</span>
+            </div>
+        </li>
+
+
+        <li class="stats_item">
+            <div class="stats_key">
+                <span>最远击杀距离</span>
+            </div>
+            <div class="stats_value">
+                <span>{{scStatsData.longestKill|number:'1.0-1'}}m</span>
             </div>
         </li>
         <li class="stats_item">
@@ -48,41 +84,10 @@
                 <span>爆头</span>
             </div>
             <div class="stats_value">
-                <span>9.8%</span>
+                <span>{{scStatsData.headshotKills/scStatsData.kills*100|number:'1.1-1'}}%</span>
             </div>
         </li>
-        <li class="stats_item">
-            <div class="stats_key">
-                <span>平均排名</span>
-            </div>
-            <div class="stats_value">
-                <span>30</span>
-            </div>
-        </li>
-        <li class="stats_item">
-            <div class="stats_key">
-                <span>平均生存时间</span>
-            </div>
-            <div class="stats_value">
-                <span>06:35</span>
-            </div>
-        </li>
-        <li class="stats_item">
-            <div class="stats_key">
-                <span>KDA</span>
-            </div>
-            <div class="stats_value">
-                <span>5.52</span>
-            </div>
-        </li>
-        <li class="stats_item">
-            <div class="stats_key">
-                <span>最多击杀</span>
-            </div>
-            <div class="stats_value">
-                <span>21</span>
-            </div>
-        </li>
+
     </ul>
 
     <div class="blank-stats" *ngIf="isEmpty()">
@@ -98,6 +103,5 @@
 
 <ng-template class="backss" #extraTemplate>
     <span>7场</span>
-    <button (click)='getPlayerData()'>refresh</button>
 </ng-template>
 

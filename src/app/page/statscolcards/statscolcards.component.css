@@ -1,0 +1,27 @@
+app-statscard {
+    float: left;
+    margin: 5px 22px;
+    display: table-cell;
+    min-width: 330px;
+}
+
+.stats-collections {
+    margin: auto;
+    display: table;
+    width: 100%;
+}
+
+@media (max-width: 1000px) {
+    app-statscard {
+        float: left;
+        margin: 5px 0;
+        display: table-cell;
+        width: 100%;
+    }
+
+    .stats-collections {
+        margin: auto;
+        display: table;
+        width: 100%;
+    }
+}

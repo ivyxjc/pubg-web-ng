@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {PlayerService} from '../../service/http/player.service';
 
 @Component({
@@ -6,37 +6,33 @@ import {PlayerService} from '../../service/http/player.service';
     templateUrl: './statscard.component.html',
     styleUrls: ['./statscard.component.css']
 })
-export class StatscardComponent implements OnInit {
-    playerModeStats: IGameModeStats;
+export class StatscardComponent implements OnInit, OnChanges {
+    @Input() scStatsData = <IGameModeStats>{};
 
     constructor(private playerService: PlayerService) {
     }
 
     ngOnInit() {
-        this.playerModeStats = <IGameModeStats>{};
-        this.playerModeStats.isEmpty = function () {
+        console.log('onInit');
+    }
+
+    ngOnChanges() {
+        console.log('onchange');
+        if (typeof this.scStatsData === 'undefined') {
+            this.scStatsData = <IGameModeStats>{};
+        }
+        this.scStatsData.isEmpty = function () {
+            for (const key of Object.keys(this)) {
+                if (typeof(this[key]) !== 'function' && this[key] !== 0) {
+                    return false;
+                }
+            }
             return true;
         };
     }
 
-    getPlayerData() {
-        return this.playerService.getPlayerSeasonStats().subscribe(
-            data => {
-                this.playerModeStats = data['data']['attributes']['gameModeStats']['duo'];
-                this.playerModeStats.isEmpty = function () {
-                    for (const key of Object.keys(this)) {
-                        if (typeof(this[key]) !== 'function' && this[key] !== 0) {
-                            return false;
-                        }
-                    }
-                    return true;
-                };
-            }
-        );
-    }
-
     isEmpty(): boolean {
-        return (typeof (this.playerModeStats.isEmpty)) === 'undefined' || this.playerModeStats.isEmpty();
+        return (typeof (this.scStatsData.isEmpty)) === 'undefined' || this.scStatsData.isEmpty();
     }
 
 }
