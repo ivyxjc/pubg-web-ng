@@ -1,8 +1,103 @@
-<div class='stats-card'>
-    <span class="title">{{scTitle}}</span>
-    <span class="value">{{scValue}}</span>
-    <div class="progress">
-        <nz-progress [nzPercent]='scPercent' [nzShowInfo]=false [nzStrokeWidth]=3></nz-progress>
+<nz-card class="stats" [nzBordered]="true" [nzTitle]="titleTemplate"
+         [nzExtra]="extraTemplate">
+
+
+    <ul *ngIf="!isEmpty()" class="stats_list">
+        <li class="stats_item">
+            <div class="stats_key stats_key--imp">
+                <span>K/D</span>
+            </div>
+            <div class="stats_value stats_value--imp">
+                <span>{{playerModeStats.kills}}</span>
+            </div>
+        </li>
+        <li class="stats_item">
+            <div class="stats_key stats_key--imp">
+                <span>场均伤害</span>
+            </div>
+            <div class="stats_value stats_value--imp">
+                <span>450</span>
+            </div>
+        </li>
+        <li class="stats_item">
+            <div class="stats_key">
+                <span>胜</span>
+            </div>
+            <div class="stats_value">
+                <span>2.0%</span>
+            </div>
+        </li>
+        <li class="stats_item">
+            <div class="stats_key">
+                <span>Top 10%</span>
+            </div>
+            <div class="stats_value">
+                <span>9.8%A</span>
+            </div>
+        </li>
+        <li class="stats_item">
+            <div class="stats_key">
+                <span>最远击杀距离</span>
+            </div>
+            <div class="stats_value">
+                <span>300m</span>
+            </div>
+        </li>
+        <li class="stats_item">
+            <div class="stats_key">
+                <span>爆头</span>
+            </div>
+            <div class="stats_value">
+                <span>9.8%</span>
+            </div>
+        </li>
+        <li class="stats_item">
+            <div class="stats_key">
+                <span>平均排名</span>
+            </div>
+            <div class="stats_value">
+                <span>30</span>
+            </div>
+        </li>
+        <li class="stats_item">
+            <div class="stats_key">
+                <span>平均生存时间</span>
+            </div>
+            <div class="stats_value">
+                <span>06:35</span>
+            </div>
+        </li>
+        <li class="stats_item">
+            <div class="stats_key">
+                <span>KDA</span>
+            </div>
+            <div class="stats_value">
+                <span>5.52</span>
+            </div>
+        </li>
+        <li class="stats_item">
+            <div class="stats_key">
+                <span>最多击杀</span>
+            </div>
+            <div class="stats_value">
+                <span>21</span>
+            </div>
+        </li>
+    </ul>
+
+    <div class="blank-stats" *ngIf="isEmpty()">
+
     </div>
-    <span class="top">{{scPercent}}%</span>
-</div>
+</nz-card>
+
+<ng-template class="backss" #titleTemplate style="display: inline-block">
+    <mat-icon class="icon" svgIcon="run-man"></mat-icon>
+    <span class="title">单排 TPP</span>
+</ng-template>
+
+
+<ng-template class="backss" #extraTemplate>
+    <span>7场</span>
+    <button (click)='getPlayerData()'>refresh</button>
+</ng-template>
+
