@@ -11,7 +11,7 @@ export class PlayerService {
     constructor(private http: HttpClient) {
     }
 
-    getPlayerSeasonStats() {
+    getPlayerSeasonStats(playername: string, season: string) {
         return this.http.get(this.playerSeasonStats);
     }
 }

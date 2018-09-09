@@ -1,5 +1,4 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
-import {PlayerService} from '../../service/http/player.service';
 
 @Component({
     selector: 'app-statscard',
@@ -9,13 +8,14 @@ import {PlayerService} from '../../service/http/player.service';
 export class StatscardComponent implements OnInit, OnChanges {
     @Input() scStatsData = <IGameModeStats>{};
     @Input() scNumber: number;
+    @Input() scIsFpp: boolean;
+
     numArray: Array<number> = new Array<number>(1);
 
-    constructor(private playerService: PlayerService) {
+    constructor() {
     }
 
     ngOnInit() {
-        console.log('onInit');
     }
 
     ngOnChanges() {

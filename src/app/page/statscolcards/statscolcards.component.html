@@ -1,5 +1,32 @@
 <div class="stats-collections">
-    <app-statscard [scStatsData]='statsData.soloStats' [scNumber]=1></app-statscard>
-    <app-statscard [scStatsData]='statsData.duoStats' [scNumber]=2></app-statscard>
-    <app-statscard [scStatsData]='statsData.squadStats' [scNumber]=4></app-statscard>
+    <div class="stats-filter">
+        <div class="stats-filter-element stats-filter_season">
+            <nz-dropdown-button>
+                {{season}}
+                <ul nz-menu>
+                    <li nz-menu-item *ngFor="let str of environmentService.seasonArray"
+                        (click)="seasonChange(str)">{{str}}
+                    </li>
+                </ul>
+            </nz-dropdown-button>
+        </div>
+        <div class="stats-filter-element stats-filter_gamemode">
+            <label nz-checkbox [(ngModel)]="isFpp">FPP</label>
+        </div>
+    </div>
+    <app-statscard *ngIf="isFpp" [scIsFpp]="isFpp" [scStatsData]='statsData.soloFppStats'
+                   [scNumber]=1></app-statscard>
+    <app-statscard *ngIf="!isFpp" [scIsFpp]="isFpp" [scStatsData]='statsData.soloStats'
+                   [scNumber]=1></app-statscard>
+
+
+    <app-statscard *ngIf="isFpp" [scIsFpp]="isFpp" [scStatsData]='statsData.duoFppStats'
+                   [scNumber]=2></app-statscard>
+    <app-statscard *ngIf="!isFpp" [scIsFpp]="isFpp" [scStatsData]='statsData.duoStats'
+                   [scNumber]=2></app-statscard>
+
+    <app-statscard *ngIf="isFpp" [scIsFpp]="isFpp" [scStatsData]='statsData.squadFppStats'
+                   [scNumber]=4></app-statscard>
+    <app-statscard *ngIf="!isFpp" [scIsFpp]="isFpp" [scStatsData]='statsData.squadStats'
+                   [scNumber]=4></app-statscard>
 </div>

@@ -1,6 +1,10 @@
+element {
+    --margin-left: 22px;
+}
+
 app-statscard {
     float: left;
-    margin: 5px 22px;
+    margin: 5px var(--margin-left);
     display: table-cell;
     min-width: 330px;
 }
@@ -9,6 +13,25 @@ app-statscard {
     margin: auto;
     display: table;
     width: auto;
+}
+
+.stats-filter {
+    width: 100%;
+    margin-left: var(--margin-left);
+    margin-bottom: 6px;
+    font-size: 20px;
+}
+
+label {
+    font-size: 20px;
+}
+
+.stats-filter-element {
+    display: inline-block;
+}
+
+.stats-filter_gamemode {
+    margin-left: 16px;
 }
 
 @media (max-width: 1000px) {

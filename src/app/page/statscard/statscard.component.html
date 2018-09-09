@@ -99,10 +99,15 @@
     <div *ngFor="let num of numArray" style="display: inline">
         <mat-icon class="icon" svgIcon="run-man"></mat-icon>
     </div>
-    <div style="display: inline" [ngSwitch]="scNumber">
+    <div style="display: inline" *ngIf="!scIsFpp" [ngSwitch]="scNumber">
         <span class="title" *ngSwitchCase="1">单排TPP</span>
         <span class="title" *ngSwitchCase="2">双排TPP</span>
         <span class="title" *ngSwitchCase="4">四排TPP</span>
+    </div>
+    <div style="display: inline" *ngIf="scIsFpp" [ngSwitch]="scNumber">
+        <span class="title" *ngSwitchCase="1">单排FPP</span>
+        <span class="title" *ngSwitchCase="2">双排FPP</span>
+        <span class="title" *ngSwitchCase="4">四排FPP</span>
     </div>
 </ng-template>
 
