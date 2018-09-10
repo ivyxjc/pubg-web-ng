@@ -1,0 +1,23 @@
+nz-list {
+    max-width: 900px;
+    margin-right: 60px;
+    margin-left: auto;
+}
+
+.match-summary-card_time {
+    width: 82px;
+    padding-left: 12px;
+}
+
+.match-summary-card_time_icon {
+}
+
+.icon {
+    width: 12px;
+}
+
+@media (max-width: 1000px) {
+    nz-list {
+        margin: 0;
+    }
+}

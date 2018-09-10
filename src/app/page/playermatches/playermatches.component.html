@@ -1,0 +1,41 @@
+<nz-list
+    [nzDataSource]="playerMatches.matches"
+    [nzItemLayout]="'vertical'"
+    [nzRenderItem]="item"
+    [nzPagination]="pagination">
+    <ng-template #item let-item>
+        <nz-list-item [nzContent]="detail">
+            <!--<ng-template #starAction><i class="anticon anticon-star-o" style="margin-right: 8px;"></i> 156</ng-template>-->
+            <!--<ng-template #likeAction><i class="anticon anticon-like-o" style="margin-right: 8px;"></i> 156</ng-template>-->
+            <!--<ng-template #msgAction><i class="anticon anticon-message" style="margin-right: 8px;"></i> 2</ng-template>-->
+            <!--<nz-list-item-meta-->
+            <!--[nzAvatar]="item.avatar"-->
+            <!--[nzTitle]="nzTitle"-->
+            <!--[nzDescription]="item.description">-->
+            <!--<ng-template #nzTitle><a href="{{item.href}}">{{item.title}}</a></ng-template>-->
+            <!--</nz-list-item-meta>-->
+        </nz-list-item>
+    </ng-template>
+    <ng-template #pagination>
+        <nz-pagination [nzPageIndex]="1" [nzTotal]="50"></nz-pagination>
+    </ng-template>
+    <ng-template #detail>
+        <div nz-row class="match-summary-card">
+            <div nz-col [nzSpan]='4'>
+                <div class="match-summary-card_time">
+                    <!--<div class="match-summary-card_time_icon">-->
+                    <mat-icon class="icon" svgIcon="run-man"></mat-icon>
+                    <!--</div>-->
+                    <div>
+                        {{item.matchId}}
+                    </div>
+                </div>
+            </div>
+            <div nz-col [nzSpan]='4'>BBBB</div>
+            <div nz-col [nzSpan]='4'>CCCC</div>
+            <div nz-col [nzSpan]='4'>DDDD</div>
+            <div nz-col [nzSpan]='4'>EEEE</div>
+            <div nz-col [nzSpan]='4'>FFFF</div>
+        </div>
+    </ng-template>
+</nz-list>
