@@ -13,7 +13,7 @@ import zh from '@angular/common/locales/zh';
 import {StatscardComponent} from './page/statscard/statscard.component';
 import {MatIconModule, MatIconRegistry} from '@angular/material';
 import {StatscolcardsComponent} from './page/statscolcards/statscolcards.component';
-import {DetailcardComponent} from './page/detailcard/detailcard.component';
+import {PlayermatchesComponent} from './page/playermatches/playermatches.component';
 
 registerLocaleData(zh);
 
@@ -24,7 +24,7 @@ registerLocaleData(zh);
         HeaderComponent,
         StatscardComponent,
         StatscolcardsComponent,
-        DetailcardComponent,
+        PlayermatchesComponent,
     ],
     imports: [
         BrowserModule,

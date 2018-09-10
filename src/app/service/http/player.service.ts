@@ -41,4 +41,8 @@ export class PlayerService {
             });
     }
 
+    getPlayerMatchDetail() {
+        return this.http.get('assets/test-data/playerMatchDetail.json');
+    }
+
 }

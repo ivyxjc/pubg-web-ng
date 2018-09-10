@@ -9,7 +9,7 @@ import {EventService} from './service/common/event.service';
 })
 export class AppComponent implements OnInit {
     title = 'pubg-web-ng';
-    value = 'shroud';
+    value = '17_JmzzV';
     ENTER_KEY = 13;
     ESC_KEY = 27;
     private playernameInput;

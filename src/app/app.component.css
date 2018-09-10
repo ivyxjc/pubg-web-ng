@@ -12,23 +12,25 @@ nz-footer {
     margin: 0 8px 0 8px;
 }
 
-@media (min-width: 1000px) {
-    .main-content {
-        padding: 0 50px;
-    }
+.main-content {
+    padding: 0 50px;
+}
 
-    .main-header {
-        padding-left: 330px;
-    }
+.main-header {
+    padding-left: 330px;
+}
 
-    .stats-collections {
-        background: #fff;
-        padding: 12px 0;
-        min-height: 280px;
-        width: auto;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+.main-page {
+    background: #fff;
+    padding: 12px 0;
+    min-height: 280px;
+    width: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-page_matches {
+    padding-right: 0;
 }
 
 @media (max-width: 1000px) {
@@ -40,7 +42,7 @@ nz-footer {
         padding-left: 6px;
     }
 
-    .stats-collections {
+    .main-page {
         background: #fff;
         padding: 12px 0;
         min-height: 280px;
