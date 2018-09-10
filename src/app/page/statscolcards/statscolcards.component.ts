@@ -22,7 +22,7 @@ export class StatscolcardsComponent implements OnInit {
 
     getPlayerData(seasonNum: string) {
         console.log('hello');
-        return this.playerService.getPlayerSeasonStats('', seasonNum).subscribe(
+        return this.playerService.getPlayerSeasonStats(seasonNum).subscribe(
             data => this.statsData = {
                 soloStats: data['data']['attributes']['gameModeStats']['solo'],
                 duoStats: data['data']['attributes']['gameModeStats']['duo'],
